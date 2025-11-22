@@ -1,0 +1,200 @@
+import cv2 as cv
+import numpy as np
+import os
+import sys
+import secrets
+import customtkinter as CTk
+from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
+from cryptography.hazmat.backends import default_backend
+from PIL import Image
+import threading
+import time
+from pathlib import Path
+
+# Add parent directory to path for imports
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from shared.config import ENCRYPTED_IMAGES_DIR, KEYS_DIR
+
+class CaptureApp(CTk.CTk):
+    def __init__(self):
+        super().__init__()
+        self.geometry("600x500")
+        self.title("Image Encryption - Capture Mode")
+        self.resizable(False, False)
+        
+        self.main_frame = CTk.CTkFrame(self, fg_color="#FCFCFC", bg_color="#FCFCFC")
+        self.main_frame.pack(fill="both", expand=True)
+        
+        self.cap = None
+        self.camera_running = False
+        self.current_frame = None
+        
+        self.create_ui()
+        
+    def create_ui(self):
+        header = CTk.CTkLabel(
+            self.main_frame,
+            text="Image Encryption System",
+            font=CTk.CTkFont(size=36, weight="bold"),
+            text_color="#000000"
+        )
+        header.pack(pady=30)
+        
+        self.info_label = CTk.CTkLabel(
+            self.main_frame,
+            text="Click 'Start Camera' to begin",
+            font=CTk.CTkFont(size=14),
+            text_color="#555555"
+        )
+        self.info_label.pack(pady=10)
+        
+        self.start_camera_btn = CTk.CTkButton(
+            self.main_frame,
+            text="Start Camera",
+            width=200,
+            height=50,
+            fg_color="#4CAF50",
+            text_color="white",
+            hover_color="#45a049",
+            corner_radius=10,
+            font=CTk.CTkFont(size=18, weight="bold"),
+            command=self.start_camera
+        )
+        self.start_camera_btn.pack(pady=20)
+        
+        self.key_display = CTk.CTkTextbox(
+            self.main_frame,
+            width=500,
+            height=150,
+            font=CTk.CTkFont(size=12),
+            fg_color="#f0f0f0"
+        )
+        self.key_display.pack(pady=20, padx=20)
+        self.key_display.insert("1.0", "Encryption keys will appear here after capture...")
+        self.key_display.configure(state="disabled")
+        
+        instructions = CTk.CTkLabel(
+            self.main_frame,
+            text="Instructions:\n1. Click 'Start Camera'\n2. Press 'C' to capture & encrypt\n3. Press 'ESC' to close camera",
+            font=CTk.CTkFont(size=12),
+            text_color="#666666",
+            justify="left"
+        )
+        instructions.pack(pady=10)
+        
+    def start_camera(self):
+        if not self.camera_running:
+            self.camera_running = True
+            self.start_camera_btn.configure(state="disabled", text="Camera Running...")
+            threading.Thread(target=self.camera_loop, daemon=True).start()
+    
+    def camera_loop(self):
+        self.cap = cv.VideoCapture(0)
+        
+        if not self.cap.isOpened():
+            self.after(0, lambda: self.update_info("Error: Cannot access camera!"))
+            self.camera_running = False
+            self.after(0, lambda: self.start_camera_btn.configure(state="normal", text="Start Camera"))
+            return
+        
+        cv.namedWindow("Camera - Press 'C' to Capture", cv.WINDOW_NORMAL)
+        self.after(0, lambda: self.update_info("Camera active! Press 'C' to capture and encrypt image"))
+        
+        while self.camera_running:
+            ret, frame = self.cap.read()
+            if not ret:
+                break
+            
+            frame = cv.flip(frame, 1)
+            self.current_frame = frame.copy()
+            
+            display_frame = frame.copy()
+            cv.putText(display_frame, "Press 'C' to Capture & Encrypt", 
+                      (10, 30), cv.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
+            cv.putText(display_frame, "Press 'ESC' to Exit", 
+                      (10, 60), cv.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
+            
+            cv.imshow("Camera - Press 'C' to Capture", display_frame)
+            
+            key = cv.waitKey(1) & 0xFF
+            
+            if key == ord('c') or key == ord('C'):
+                self.capture_and_encrypt()
+            elif key == 27:
+                break
+        
+        self.cleanup_camera()
+    
+    def capture_and_encrypt(self):
+        if self.current_frame is None:
+            return
+        
+        timestamp = int(time.time())
+        
+        encryption_key = secrets.token_bytes(32)
+        
+        image_data = cv.imencode('.png', self.current_frame)[1].tobytes()
+        
+        iv = secrets.token_bytes(16)
+        
+        cipher = Cipher(
+            algorithms.AES(encryption_key),
+            modes.CFB(iv),
+            backend=default_backend()
+        )
+        encryptor = cipher.encryptor()
+        encrypted_data = encryptor.update(image_data) + encryptor.finalize()
+        
+        encrypted_filename = ENCRYPTED_IMAGES_DIR / f"encrypted_{timestamp}.bin"
+        with open(encrypted_filename, 'wb') as f:
+            f.write(iv + encrypted_data)
+        
+        key_hex = encryption_key.hex()
+        key_filename = KEYS_DIR / f"key_{timestamp}.txt"
+        with open(key_filename, 'w') as f:
+            f.write(f"Encryption Key: {key_hex}\n")
+            f.write(f"Timestamp: {timestamp}\n")
+            f.write(f"Encrypted File: {encrypted_filename}\n")
+        
+        self.after(0, lambda: self.update_key_display(key_hex, encrypted_filename, key_filename))
+        self.after(0, lambda: self.update_info(f"Image encrypted successfully! Key saved to {key_filename}"))
+        
+        print(f"\n{'='*60}")
+        print(f"IMAGE ENCRYPTED SUCCESSFULLY!")
+        print(f"{'='*60}")
+        print(f"Encrypted file: {encrypted_filename}")
+        print(f"Key file: {key_filename}")
+        print(f"Encryption key: {key_hex}")
+        print(f"{'='*60}\n")
+    
+    def update_key_display(self, key, encrypted_file, key_file):
+        self.key_display.configure(state="normal")
+        self.key_display.delete("1.0", "end")
+        display_text = f"Latest Encryption:\n\n"
+        display_text += f"Key: {key}\n\n"
+        display_text += f"Encrypted File: {encrypted_file}\n"
+        display_text += f"Key File: {key_file}\n\n"
+        display_text += f"Use this key in the Decryption program to recover the image!"
+        self.key_display.insert("1.0", display_text)
+        self.key_display.configure(state="disabled")
+    
+    def update_info(self, message):
+        self.info_label.configure(text=message)
+    
+    def cleanup_camera(self):
+        if self.cap:
+            self.cap.release()
+        cv.destroyAllWindows()
+        self.camera_running = False
+        self.after(0, lambda: self.start_camera_btn.configure(state="normal", text="Start Camera"))
+        self.after(0, lambda: self.update_info("Camera closed. Click 'Start Camera' to begin again"))
+    
+    def on_closing(self):
+        self.camera_running = False
+        self.cleanup_camera()
+        self.destroy()
+
+if __name__ == "__main__":
+    app = CaptureApp()
+    app.protocol("WM_DELETE_WINDOW", app.on_closing)
+    app.mainloop()
