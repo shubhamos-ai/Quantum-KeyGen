@@ -1,0 +1,88 @@
+SHUBHAM PROTECTIVE LICENSE (SPL-1.0)
+Version 1.0 — 2025
+Copyright (c) 2025 Shubham. All Rights Reserved.
+
+1. OWNERSHIP
+This software, including all source code, documentation, binary files, assets, algorithms,
+cryptographic procedures, designs, and any derivative elements (collectively, “Software”),
+is the exclusive intellectual property of Shubham. All rights not expressly granted are
+fully reserved.
+
+2. PROHIBITED ACTIONS (YOU MAY NOT)
+Without prior, written, signed permission from Shubham, you are strictly prohibited from:
+
+2.1 Copying & Distribution
+- Copying, duplicating, mirroring, reproducing, or redistributing this Software in any form.
+- Uploading, reposting, transmitting, or hosting the Software on any platform.
+
+2.2 Commercial Use
+- Using the Software for any commercial, financial, enterprise, organizational, institutional,
+  or military purpose.
+- Integrating the Software into any paid product, service, website, or system.
+
+2.3 Modification
+- Modifying, translating, adapting, improving, decompiling, disassembling, or making
+  derivative works from the Software.
+
+2.4 Reverse Engineering
+- Attempting to understand, extract, replicate, analyze, deconstruct, break, bypass, or
+  investigate the internal logic, algorithmic methodology, or cryptographic processes.
+
+2.5 AI & Machine Learning Restrictions
+You are expressly forbidden from:
+- Using this Software as training data for AI models.
+- Using the Software in datasets, embeddings, corpora, or automated pipelines.
+- Allowing LLMs or ML systems to ingest, analyze, or transform the Software.
+
+2.6 Security & Cryptography Misuse
+- Employing the Software in any security-critical environment without written approval.
+- Using it in research attempting to bypass, break, or undermine cryptographic security.
+
+3. PERMISSIONS (WHAT YOU MAY DO)
+You are permitted to:
+
+3.1 Viewing
+- View the source code only for personal, educational, and non-commercial understanding.
+
+3.2 Forking (Limited Permission)
+- You may create a public fork on GitHub, but:
+  - The fork must remain public.
+  - You may not delete copyright notices.
+  - You may not modify or distribute the forked version.
+  - You may not use the fork for any functional deployment.
+FORKING DOES NOT GRANT ANY LICENSE RIGHTS.
+
+4. LIABILITY DISCLAIMER
+The Software is provided “as is,” without warranty of any kind. Under no circumstances shall
+Shubham be liable for:
+- Loss of data
+- Security breaches
+- Business interruption
+- Damages of any kind
+- Legal consequences
+- Any other direct or indirect harm
+Use at your own risk.
+
+5. TERMINATION
+This license is automatically terminated if:
+- You violate any condition in this document.
+- You attempt to sublicense, sell, rent, or commercialize any part of the Software.
+- You attempt circumvention or unauthorized extraction.
+- You integrate the Software into an AI/ML system.
+Once terminated, you must immediately destroy all copies of the Software in your possession.
+
+6. JURISDICTION
+Any dispute involving the Software shall be governed exclusively by the laws of the jurisdiction
+chosen by Shubham, without regard to conflict-of-law principles.
+
+7. CONTACT
+To request special permissions or commercial rights, you must contact the copyright holder:
+Shubham (Official Owner & Author)
+All permissions must be explicit, written, and signed.
+
+SUMMARY FOR USERS
+- You can see the code.
+- You can fork it publicly.
+- You CANNOT copy, modify, use, redistribute, sell, or reverse-engineer it.
+- All rights belong to Shubham.
+- Violations have legal consequences.
