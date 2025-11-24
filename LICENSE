@@ -1,88 +1,161 @@
-SHUBHAM PROTECTIVE LICENSE (SPL-1.0)
-Version 1.0 — 2025
-Copyright (c) 2025 Shubham. All Rights Reserved.
+SHUBHAMOS FORK RESTRICTED LICENSE (SFRL-2.0)
+A License Governing This Specific Fork Only
+Version 2.0 — 2025
+Original Author: ZeefromZee
+Modification Author: SHUBHAMOS
 
-1. OWNERSHIP
-This software, including all source code, documentation, binary files, assets, algorithms,
-cryptographic procedures, designs, and any derivative elements (collectively, “Software”),
-is the exclusive intellectual property of Shubham. All rights not expressly granted are
-fully reserved.
+----------------------------------------------------------------------
+PREAMBLE
+----------------------------------------------------------------------
+This repository is a non-original, derivative fork of software created
+entirely by ZeefromZee. All original source code, design, structure,
+algorithmic work, assets, logic, and intellectual property belong
+exclusively to the original creator, ZeefromZee.
 
-2. PROHIBITED ACTIONS (YOU MAY NOT)
-Without prior, written, signed permission from Shubham, you are strictly prohibited from:
+This license governs ONLY the modifications, additions, structural
+adjustments, or changes made by SHUBHAMOS within this fork. Nothing in
+this license alters or reduces the rights of the original author,
+whose ownership remains fully intact and absolute.
 
-2.1 Copying & Distribution
-- Copying, duplicating, mirroring, reproducing, or redistributing this Software in any form.
-- Uploading, reposting, transmitting, or hosting the Software on any platform.
+This fork exists solely for temporary, non-functional, non-distributive
+viewing purposes.
 
-2.2 Commercial Use
-- Using the Software for any commercial, financial, enterprise, organizational, institutional,
-  or military purpose.
-- Integrating the Software into any paid product, service, website, or system.
+----------------------------------------------------------------------
+SECTION 1 — CREDIT, ATTRIBUTION & OWNERSHIP
+----------------------------------------------------------------------
+1.1 All original work belongs to the creator, ZeefromZee.
 
-2.3 Modification
-- Modifying, translating, adapting, improving, decompiling, disassembling, or making
-  derivative works from the Software.
+1.2 All modifications made within this fork are authored by SHUBHAMOS.
+These include only the altered, added, or removed lines of code
+introduced in this fork.
 
-2.4 Reverse Engineering
-- Attempting to understand, extract, replicate, analyze, deconstruct, break, bypass, or
-  investigate the internal logic, algorithmic methodology, or cryptographic processes.
+1.3 Attribution to both ZeefromZee and SHUBHAMOS must always be retained.
 
-2.5 AI & Machine Learning Restrictions
-You are expressly forbidden from:
-- Using this Software as training data for AI models.
-- Using the Software in datasets, embeddings, corpora, or automated pipelines.
-- Allowing LLMs or ML systems to ingest, analyze, or transform the Software.
+1.4 This fork grants no rights to use, license, modify, redistribute,
+or adapt the original software by ZeefromZee.
 
-2.6 Security & Cryptography Misuse
-- Employing the Software in any security-critical environment without written approval.
-- Using it in research attempting to bypass, break, or undermine cryptographic security.
+----------------------------------------------------------------------
+SECTION 2 — PROHIBITED ACTIONS
+----------------------------------------------------------------------
+YOU ARE STRICTLY AND LEGALLY PROHIBITED FROM:
 
-3. PERMISSIONS (WHAT YOU MAY DO)
-You are permitted to:
+-- 2.1 Downloading & Copying --
+• Downloading any part of this repository
+• Cloning the repository
+• Copying or saving files locally
+• Taking screenshots or textual extracts
+• Mirroring, reproducing, or archiving any content
 
-3.1 Viewing
-- View the source code only for personal, educational, and non-commercial understanding.
+-- 2.2 Redistribution & Uploading --
+• Reposting, uploading, or sharing this fork elsewhere
+• Creating new forks from this fork
+• Distributing through any medium (Git, cloud, messaging, etc.)
 
-3.2 Forking (Limited Permission)
-- You may create a public fork on GitHub, but:
-  - The fork must remain public.
-  - You may not delete copyright notices.
-  - You may not modify or distribute the forked version.
-  - You may not use the fork for any functional deployment.
-FORKING DOES NOT GRANT ANY LICENSE RIGHTS.
+-- 2.3 Modification & Reuse --
+• Modifying, editing, rewriting, or adapting any part of this fork
+• Using this fork in any personal, public, academic, or commercial project
+• Integrating any portion of this fork into other software or services
 
-4. LIABILITY DISCLAIMER
-The Software is provided “as is,” without warranty of any kind. Under no circumstances shall
-Shubham be liable for:
-- Loss of data
-- Security breaches
-- Business interruption
-- Damages of any kind
-- Legal consequences
-- Any other direct or indirect harm
-Use at your own risk.
+-- 2.4 AI & Machine Learning Restrictions --
+Absolutely forbidden:
+• Using this fork as training data for AI/ML systems
+• Embedding, tokenizing, converting, or allowing AI tools to ingest it
+• Feeding the fork to datasets, corpora, or automated analysis systems
 
-5. TERMINATION
-This license is automatically terminated if:
-- You violate any condition in this document.
-- You attempt to sublicense, sell, rent, or commercialize any part of the Software.
-- You attempt circumvention or unauthorized extraction.
-- You integrate the Software into an AI/ML system.
-Once terminated, you must immediately destroy all copies of the Software in your possession.
+-- 2.5 Commercial, Institutional & Organizational Use --
+You may NOT use this fork for:
+• Commercial or financial purposes
+• Enterprise, institutional, or governmental systems
+• Military or research purposes
+• Paid or unpaid services or deployments
 
-6. JURISDICTION
-Any dispute involving the Software shall be governed exclusively by the laws of the jurisdiction
-chosen by Shubham, without regard to conflict-of-law principles.
+-- 2.6 Reverse Engineering & Security --
+Forbidden:
+• Reverse engineering
+• Decompiling or deobfuscation
+• Attempting code extraction
+• Reconstructing or reimplementing logic or algorithms
 
-7. CONTACT
-To request special permissions or commercial rights, you must contact the copyright holder:
-Shubham (Official Owner & Author)
-All permissions must be explicit, written, and signed.
+----------------------------------------------------------------------
+SECTION 3 — TEMPORARY EXISTENCE & LIFESPAN
+----------------------------------------------------------------------
+3.1 This fork exists temporarily and may be removed at any time by
+SHUBHAMOS, without notice.
 
-SUMMARY FOR USERS
-- You can see the code.
-- You can fork it publicly.
-- You CANNOT copy, modify, use, redistribute, sell, or reverse-engineer it.
-- All rights belong to Shubham.
-- Violations have legal consequences.
+3.2 Upon removal, all modification rights return exclusively to
+SHUBHAMOS. All original rights remain with ZeefromZee.
+
+3.3 After removal:
+• No archiving
+• No mirroring
+• No reuploading
+• No backups
+• No redistributions
+are permitted.
+
+3.4 Any attempt to preserve this fork post-removal qualifies as a
+DMCA-eligible copyright violation.
+
+----------------------------------------------------------------------
+SECTION 4 — DMCA PROTECTION
+----------------------------------------------------------------------
+This fork is protected under the Digital Millennium Copyright Act and
+international copyright treaties.
+
+Unauthorized copying, hosting, or distribution may result in:
+• Formal DMCA takedowns
+• Account or repository suspension
+• Legal action and financial penalties
+
+----------------------------------------------------------------------
+SECTION 5 — PERMITTED ACTIONS
+----------------------------------------------------------------------
+You may ONLY:
+• View the repository in its existing hosted form
+
+You may NOT:
+• Run, execute, compile, download, export, fork, reuse, or modify it
+
+Viewing is a privilege, not a license.
+
+----------------------------------------------------------------------
+SECTION 6 — TERMINATION OF RIGHTS
+----------------------------------------------------------------------
+Your permission to view this fork is automatically terminated if you:
+• Download anything
+• Reuse any part of it
+• Redistribute or upload it
+• Train AI models on it
+• Mirror, clone, or archive it
+• Attempt to bypass restrictions
+
+Upon termination, you must immediately delete all copies, including
+cached or automatically stored fragments.
+
+----------------------------------------------------------------------
+SECTION 7 — LIABILITY DISCLAIMER
+----------------------------------------------------------------------
+This fork is provided “AS IS” with no warranty of any kind. Both
+ZeefromZee and SHUBHAMOS disclaim any responsibility for:
+• Damages
+• Data loss
+• Legal issues
+• Security incidents
+• Misuse or unintended consequences
+
+Use and access are entirely at your own risk.
+
+----------------------------------------------------------------------
+SECTION 8 — SUMMARY
+----------------------------------------------------------------------
+• All credit → ZeefromZee (original creator)
+• Modification credit → SHUBHAMOS
+• This fork is view-only
+• No copying, downloading, modifying, or redistribution allowed
+• This fork is temporary
+• DMCA enforcement applies
+• Violations result in legal consequences
+
+----------------------------------------------------------------------
+END OF LICENSE
+----------------------------------------------------------------------
